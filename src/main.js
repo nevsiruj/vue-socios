@@ -7,6 +7,7 @@ import 'tailwindcss/tailwind.css';
 
 // add this
 import './index.css';
+import 'flowbite';
 
 const app = createApp(App);
 app.use(router);
