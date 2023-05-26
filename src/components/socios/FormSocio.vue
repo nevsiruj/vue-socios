@@ -3,9 +3,11 @@
   <div class="bg-white shadow-md p-6 rounded-md">
     <h2 class="text-lg font-bold mb-2">Registrar nuevo socio:</h2>
     <form @submit.prevent="registrarSocio">
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 gap-4">
         <div>
-          <label for="nombre">Nombre:</label>
+          <label for="nombre" class="text-sm font-medium text-gray-700"
+            >Nombre:</label
+          >
           <input
             type="text"
             id="nombre"
@@ -20,7 +22,9 @@
           />
         </div>
         <div>
-          <label for="apellido">Apellido:</label>
+          <label for="apellido" class="text-sm font-medium text-gray-700"
+            >Apellido:</label
+          >
           <input
             type="text"
             id="apellido"
@@ -35,7 +39,9 @@
           />
         </div>
         <div>
-          <label for="dni">DNI:</label>
+          <label for="dni" class="text-sm font-medium text-gray-700"
+            >DNI:</label
+          >
           <input
             type="text"
             id="dni"
@@ -51,21 +57,19 @@
         </div>
         <!-- Agrega más campos para los datos del socio (dirección, correo electrónico, etc.) -->
       </div>
-
       <button
         type="submit"
         class="
           bg-blue-500
+          hover:bg-blue-600
           text-white
           px-4
           py-2
           rounded-md
           mt-4
-          hover:bg-blue-600
-          focus:outline-none focus:bg-blue-600
         "
       >
-        Guardar
+        Registrar
       </button>
     </form>
   </div>
