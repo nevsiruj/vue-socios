@@ -404,7 +404,10 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+
+            <span class="flex-1 ml-3 whitespace-nowrap"
+              ><router-link to="/list-socio">Socios</router-link></span
+            >
           </a>
         </li>
         <li>
@@ -484,7 +487,6 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <router-link 
             <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
           </a>
         </li>
@@ -525,6 +527,7 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
+
             <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
           </a>
         </li>
@@ -532,9 +535,7 @@
     </div>
   </aside>
 
-  <div class="p-4 sm:ml-64">
-  asdasdasd
-  </div>
+  <div class="p-4 sm:ml-64"><router-view></router-view></div>
 </template>
 
 <script>

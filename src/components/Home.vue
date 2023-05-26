@@ -1,4 +1,6 @@
-<template>home works</template>
+<template>
+  <p>home works</p>
+</template>
 
 <script>
 export default {
