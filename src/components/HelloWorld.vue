@@ -338,6 +338,30 @@
             </a>
           </router-link>
         </li>
+
+        <li>
+          <router-link to="/list-recibo">
+            <a
+              href="#"
+              class="
+                flex
+                items-center
+                p-2
+                text-gray-900
+                rounded-lg
+                dark:text-white
+                hover:bg-gray-100
+                dark:hover:bg-gray-700
+              "
+            >
+              <!-- Ícono para el recibo -->
+
+              <i class="fas fa-receipt text-gray-500"></i>
+
+              <span class="flex-1 ml-3 whitespace-nowrap">Recibos</span>
+            </a>
+          </router-link>
+        </li>
       </ul>
     </div>
   </aside>

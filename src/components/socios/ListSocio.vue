@@ -193,11 +193,12 @@
                             hover:bg-gray-100
                             dark:hover:bg-gray-600 dark:hover:text-white
                           "
-                          @click="cargarRecibo(socio)"
+                          @click="cargarRecibo(socio.dni)"
                         >
                           Cargar recibo
                         </a>
                       </li>
+
                       <li>
                         <a
                           href="#"
@@ -231,6 +232,7 @@
 
 <script>
 import socioService from '../../services/socioService';
+import { Router } from 'vue-router'; // Importa el enrutador de Vue Router
 
 export default {
   name: 'ListSocio',
@@ -256,6 +258,10 @@ export default {
       // Lógica para buscar al socio por DNI
       // Puedes hacer una llamada a la API o realizar las operaciones necesarias aquí
       console.log('Búsqueda de socio por DNI:', this.dni);
+    },
+    cargarRecibo(dni) {
+      // Utiliza el enrutador para navegar al formulario de carga de recibo y pasar el DNI como parámetro
+      this.$router.push({ name: 'form-recibo', params: { dni } });
     },
   },
 };

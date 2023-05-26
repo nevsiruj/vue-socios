@@ -28,6 +28,10 @@ const reciboService = {
     // Agrega más socios si es necesario
   ],
 
+  getRecibos() {
+    return this.recibos;
+  },
+
   getRecibosBySocioDni(socioDni) {
     return this.recibos.filter((recibo) => recibo.socioDni === socioDni);
   },
