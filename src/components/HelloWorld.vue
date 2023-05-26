@@ -149,7 +149,6 @@
 </aside>
 
 <div class="p-4 sm:ml-64">
-   <h3>Router view</h3>
    <router-view></router-view>
    <!-- 
    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
