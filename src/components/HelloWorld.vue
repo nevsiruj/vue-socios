@@ -727,12 +727,17 @@ import { ref } from 'vue';
 
 const isOpen = ref(false);
 
+// import { initFlowbite } from 'flowbite';
+
 export default {
   name: 'HelloWorld',
   data() {
     return {
       showSidebar: false,
     };
+  },
+  mounted() {
+    // initFlowbite();
   },
   methods: {
     handleClickOutside(event) {
