@@ -1,9 +1,8 @@
 <template>
-  <!-- Formulario para registrar nuevo socio -->
   <div class="bg-white shadow-md p-6 rounded-md">
     <h2 class="text-lg font-bold mb-2">Registrar nuevo socio:</h2>
     <form @submit.prevent="registrarSocio">
-      <div class="grid grid-cols-1 gap-4">
+      <div class="grid grid-cols-2 gap-4">
         <div>
           <label for="nombre" class="text-sm font-medium text-gray-700"
             >Nombre:</label
@@ -12,15 +11,11 @@
             type="text"
             id="nombre"
             v-model="nombre"
-            class="
-              border border-gray-300
-              p-2
-              rounded-md
-              focus:outline-none focus:border-blue-500
-            "
+            class="form-input"
             required
           />
         </div>
+        <br />
         <div>
           <label for="apellido" class="text-sm font-medium text-gray-700"
             >Apellido:</label
@@ -29,15 +24,11 @@
             type="text"
             id="apellido"
             v-model="apellido"
-            class="
-              border border-gray-300
-              p-2
-              rounded-md
-              focus:outline-none focus:border-blue-500
-            "
+            class="form-input"
             required
           />
         </div>
+        <br />
         <div>
           <label for="dni" class="text-sm font-medium text-gray-700"
             >DNI:</label
@@ -46,12 +37,7 @@
             type="text"
             id="dni"
             v-model="dni"
-            class="
-              border border-gray-300
-              p-2
-              rounded-md
-              focus:outline-none focus:border-blue-500
-            "
+            class="form-input"
             required
           />
         </div>
@@ -74,6 +60,20 @@
     </form>
   </div>
 </template>
+
+<style>
+.form-input {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+}
+</style>
 
 <script>
 import socioService from '../../services/socioService';
