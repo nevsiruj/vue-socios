@@ -3,6 +3,7 @@
 const { createApp } = require('vue');
 import App from './App.vue';
 import router from './router';
+import 'tailwindcss/tailwind.css';
 
 // add this
 import './index.css';

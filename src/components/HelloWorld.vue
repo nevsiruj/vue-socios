@@ -729,8 +729,18 @@ const isOpen = ref(false);
 
 // import { initFlowbite } from 'flowbite';
 
+import { onMounted } from 'vue';
+import { initFlowbite } from 'flowbite';
+
+// initialize components based on data attribute selectors
+
 export default {
   name: 'HelloWorld',
+  setup() {
+    onMounted(() => {
+      initFlowbite();
+    });
+  },
   data() {
     return {
       showSidebar: false,
