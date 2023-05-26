@@ -2,62 +2,23 @@
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-4">Lista de Socios</h1>
 
-    <!-- Formulario para registrar nuevo socio -->
-    <div class="bg-white shadow-md p-6 rounded-md">
-      <h2 class="text-lg font-bold mb-2">Registrar nuevo socio:</h2>
-      <form @submit.prevent="registrarSocio">
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label for="nombre">Nombre:</label>
-            <input
-              type="text"
-              id="nombre"
-              v-model="nombre"
-              class="
-                border border-gray-300
-                p-2
-                rounded-md
-                focus:outline-none focus:border-blue-500
-              "
-              required
-            />
-          </div>
-          <div>
-            <label for="apellido">Apellido:</label>
-            <input
-              type="text"
-              id="apellido"
-              v-model="apellido"
-              class="
-                border border-gray-300
-                p-2
-                rounded-md
-                focus:outline-none focus:border-blue-500
-              "
-              required
-            />
-          </div>
-          <!-- Agrega más campos para los datos del socio (dirección, correo electrónico, etc.) -->
-        </div>
-
-        <button
-          type="submit"
-          class="
-            bg-blue-500
-            text-white
-            px-4
-            py-2
-            rounded-md
-            mt-4
-            hover:bg-blue-600
-            focus:outline-none focus:bg-blue-600
-          "
-        >
-          Guardar
-        </button>
-      </form>
+    <!-- Botón para agregar un nuevo socio -->
+    <div class="mt-8">
+      <router-link
+        to="/form-socio"
+        class="
+          bg-blue-500
+          text-white
+          px-4
+          py-2
+          rounded-md
+          hover:bg-blue-600
+          focus:outline-none focus:bg-blue-600
+        "
+      >
+        Agregar nuevo socio
+      </router-link>
     </div>
-
     <!-- Búsqueda de socio por DNI -->
     <div class="mt-8">
       <h2 class="text-lg font-bold mb-2">Buscar socio por DNI:</h2>
@@ -93,8 +54,7 @@
 
       <!-- Lista de socios -->
       <div v-if="sociosFiltrados.length > 0" class="mt-4">
-        <h2 class="text-lg font-bold mb-2">Resultados:</h2>
-        <table class="max-w-full divide-y divide-gray-200">
+        <table class="w-full bg-white border border-gray-300">
           <thead class="bg-gray-50">
             <tr>
               <th
@@ -141,7 +101,7 @@
               </th>
             </tr>
           </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
+          <tbody class="divide-y divide-gray-200">
             <tr v-for="socio in sociosFiltrados" :key="socio.dni">
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm font-medium text-gray-900">
@@ -158,6 +118,7 @@
           </tbody>
         </table>
       </div>
+
       <div v-else class="mt-4">
         <p>No se encontraron socios.</p>
       </div>
@@ -166,45 +127,28 @@
 </template>
 
 <script>
+import socioService from '../../services/socioService';
+
 export default {
   name: 'ListSocio',
   data() {
     return {
-      nombre: '',
-      apellido: '',
       dni: '',
-      socios: [
-        { dni: '12345678', nombre: 'Juan', apellido: 'Pérez' },
-        { dni: '87654321', nombre: 'María', apellido: 'López' },
-        { dni: '56789012', nombre: 'Pedro', apellido: 'Gómez' },
-        // Agrega más socios si es necesario
-      ],
     };
   },
   computed: {
     sociosFiltrados() {
       if (this.dni === '') {
-        return this.socios;
+        console.log(socioService.socios);
+        return socioService.socios;
       } else {
-        return this.socios.filter((socio) => socio.dni.includes(this.dni));
+        return socioService.socios.filter((socio) =>
+          socio.dni.includes(this.dni)
+        );
       }
     },
   },
   methods: {
-    registrarSocio() {
-      // Lógica para guardar la información del nuevo socio en la base de datos
-      // Puedes hacer una llamada a la API o realizar las operaciones necesarias aquí
-      this.socios.push({
-        dni: this.dni,
-        nombre: this.nombre,
-        apellido: this.apellido,
-      });
-
-      // Limpia los campos del formulario después de guardar
-      this.nombre = '';
-      this.apellido = '';
-      this.dni = '';
-    },
     buscarSocio() {
       // Lógica para buscar al socio por DNI
       // Puedes hacer una llamada a la API o realizar las operaciones necesarias aquí
